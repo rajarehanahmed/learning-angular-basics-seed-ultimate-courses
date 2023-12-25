@@ -5,27 +5,33 @@ import { Donut } from '../../models/donut.model';
   selector: 'app-donut-card',
   encapsulation: ViewEncapsulation.Emulated,
   template: `
-      <img
-        src="/assets/img/{{ donut.icon }}.svg"
-        [alt]="donut.name"
-        class="donut-card-icon"
-      />
-      <div class="donut-card-details">
-        <div class="donut-card-name">
-          <p>
-            {{ donut.name }}
-          </p>
-        </div>
-        <div class="donut-card-price">
-          <p>
-            {{ donut.price }}
-          </p>
+      <div
+        class="donut-card"
+        [style.border]="donut.promo ? '2px solid #eee' : 'none'"
+      >
+
+        <img
+          src="/assets/img/{{ donut.icon }}.svg"
+          [alt]="donut.name"
+          class="donut-card-icon"
+        />
+        <div class="donut-card-details">
+          <div class="donut-card-name">
+            <p>
+              {{ donut.name }}
+            </p>
+          </div>
+          <div class="donut-card-price">
+            <p>
+              {{ donut.price }}
+            </p>
+          </div>
         </div>
       </div>
   `,
   styles: [
     `
-      :host {
+      .donut-card {
         display: flex;
         align-items: center;
         background: #f7f7f7;
@@ -36,8 +42,6 @@ import { Donut } from '../../models/donut.model';
         &:hover {
           transform: translateY(-4px);
         }
-      }
-      .donut-card {
         &-details {
           display: flex;
           flex-direction: column;
