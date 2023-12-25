@@ -7,10 +7,7 @@ import { Donut } from '../../models/donut.model';
   template: `
       <div
         class="donut-card"
-        [ngStyle]="{
-          border: donut.promo ? '2px solid #eee' : 'none',
-          'background-color': donut.promo ? '#fff' : '#f7f7f7'
-        }"
+        [class.donut-card-promo]="donut.promo"
       >
 
         <img
@@ -44,6 +41,9 @@ import { Donut } from '../../models/donut.model';
         transition: transform 0.2s ease-in-out;
         &:hover {
           transform: translateY(-4px);
+        }
+        &-promo {
+          border: 2px solid #eee;
         }
         &-details {
           display: flex;
