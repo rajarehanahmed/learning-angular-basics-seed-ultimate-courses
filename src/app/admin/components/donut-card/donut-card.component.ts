@@ -25,7 +25,7 @@ import { Donut } from '../../models/donut.model';
           </div>
           <div class="donut-card-price">
             <p>
-              {{ donut.price }}
+              {{ donut.price / 100 | currency: 'GBP':'symbol' }}
             </p>
           </div>
         </div>
